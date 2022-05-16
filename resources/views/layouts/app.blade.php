@@ -95,14 +95,14 @@
                                 {{ __('ジャンル') }}
                                 <br>
                                     <select class="form-control mb-2 mt-1" name="genre">
-                                        <option value="eat">食費</option>
-                                        <option value="daily">日用品</option>
-                                        <option value="dat">交際費</option>
-                                        <option value="wor">仕事関係</option>
-                                        <option value="uti">光熱費など</option>
-                                        <option value="mov">交通費</option>
-                                        <option value="ent">趣味・娯楽費</option>
-                                        <option value="etc">その他</option>
+                                        <option value="eat" {{ old('genre') === 'eat' ? 'selected' : ''}}>食費</option>
+                                        <option value="daily" {{ old('genre') === 'daily' ? 'selected' : ''}}>日用品</option>
+                                        <option value="dat"{{ old('genre') === 'dat' ? 'selected' : ''}}>交際費</option>
+                                        <option value="wor"{{ old('genre') === 'wor' ? 'selected' : ''}}>仕事関係</option>
+                                        <option value="uti"{{ old('genre') === 'uti' ? 'selected' : ''}}>光熱費など</option>
+                                        <option value="mov"{{ old('genre') === 'mov' ? 'selected' : ''}}>交通費</option>
+                                        <option value="ent"{{ old('genre') === 'ent' ? 'selected' : ''}}>趣味・娯楽費</option>
+                                        <option value="etc"{{ old('genre') === 'etc' ? 'selected' : ''}}>その他</option>
                                     </select>
                             </div><!-- class="col-md-8"> -->
 
