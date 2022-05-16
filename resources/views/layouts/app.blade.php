@@ -24,7 +24,7 @@
     <div id="app">
     <nav class="navbar navbar-expand-md navbar-light shadow-sm py-3" style="background-color:#afeeee;">
             <div class="container">
-                <a class="navbar-brand mb-0 h1" href="{{ url('/') }}">
+                <a class="navbar-brand mb-0 h1 fw-bolder" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -109,7 +109,7 @@
                             <div class="col-md-8">
                                 {{ __('詳細') }}
                                     <br>
-                                        <input type="text" name="name" class="mb-2 form-control mt-1" value="" placeholder="例：お昼ごはん etc...">
+                                        <input type="text" name="name" class="mb-2 form-control mt-1" value="{{ old('name') }}" placeholder="例：お昼ごはん etc...">
                                             @if($errors->has('name'))
                                                 @foreach($errors->get('name') as $message)
                                                     <p class="small text-danger">→ {{ $message }} </p>
@@ -120,7 +120,7 @@
                             <div class="col-md-8">
                                 {{ __('金額') }}
                                 <br>
-                                <input type="number" name="price" class="mb-2 form-control mt-1" value="" placeholder="例：10000">
+                                <input type="number" name="price" class="mb-2 form-control mt-1" value="{{ old('price') }}" placeholder="例：10000">
                                     @if($errors->has('price'))
                                         @foreach($errors->get('price') as $message)
                                             <p class="small text-danger">→ {{ $message }} </p>
@@ -131,7 +131,7 @@
                             <div class="col-md-8">
                                 {{ __('日付') }}
                                 <br>
-                                <input type="date" name="use_at" class="mb-0 form-control mt-1" value="" ><span class="ms-2">
+                                <input type="date" name="use_at" class="mb-2 form-control mt-1" value="{{ old('use_at') }}" >
                                 @if($errors->has('use_at'))
                                     @foreach($errors->get('use_at') as $message)
                                         <p class="small text-danger">→ {{ $message }} </p>
@@ -140,7 +140,7 @@
                             </div><!--  class="col-md-8"> -->
 
 
-                            <div class="col-md-8 mt-1">
+                            <div class="col-md-8 mt-4">
                                     <button type="submit"  class="btn btn-primary">
                                         {{ __('登録する') }}
                                     </button>

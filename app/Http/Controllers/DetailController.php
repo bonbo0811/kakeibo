@@ -22,14 +22,17 @@ class DetailController extends Controller
             $end = carbon::now()->endOfMonth();
 
             $date = carbon::now();
-            
 
             // 一覧を取得->15件でページネート
-            $lists = detail::where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->orderby('created_at','asc')->paginate(15);
-            $sum = detail::where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->sum('price');
+            $lists = detail::where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->orderby('use_at','asc')->paginate(15);
+            $sum = detail::where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->sum('price');
             // dd($sum);
 
             $genre = '全体';
+
+            $lastyear = now()->subYear();
+
+            $detete = detail::where('user_id',$user['id'])->whereDate('use_at','<',$lastyear)->delete();
 
             return view('kakeibo.list',compact('lists','sum','genre','date'));
         }
@@ -46,8 +49,8 @@ class DetailController extends Controller
             $date = carbon::now();
 
             // 一覧を取得->15件でページネート
-            $lists = detail::where('genre','eat')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->orderby('created_at','asc')->paginate(15);
-            $sum = detail::where('genre','eat')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->sum('price');
+            $lists = detail::where('genre','eat')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->orderby('use_at','asc')->paginate(15);
+            $sum = detail::where('genre','eat')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->sum('price');
             // dd($lists);
 
             $genre = '食費';
@@ -67,8 +70,8 @@ class DetailController extends Controller
             $date = carbon::now();
 
             // 一覧を取得->15件でページネート
-            $lists = detail::where('genre','daily')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->orderby('created_at','asc')->paginate(15);
-            $sum = detail::where('genre','daily')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->sum('price');
+            $lists = detail::where('genre','daily')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->orderby('use_at','asc')->paginate(15);
+            $sum = detail::where('genre','daily')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->sum('price');
             // dd($lists);
 
             $genre = '日用品';
@@ -88,8 +91,8 @@ class DetailController extends Controller
             $date = carbon::now();
 
             // 一覧を取得->15件でページネート
-            $lists = detail::where('genre','dat')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->orderby('created_at','asc')->paginate(15);
-            $sum = detail::where('genre','dat')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->sum('price');
+            $lists = detail::where('genre','dat')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->orderby('use_at','asc')->paginate(15);
+            $sum = detail::where('genre','dat')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->sum('price');
             // dd($lists);
 
             $genre = '交際費';
@@ -109,8 +112,8 @@ class DetailController extends Controller
             $date = carbon::now();
 
             // 一覧を取得->15件でページネート
-            $lists = detail::where('genre','wor')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->orderby('created_at','asc')->paginate(15);
-            $sum = detail::where('genre','wor')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->sum('price');
+            $lists = detail::where('genre','wor')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->orderby('use_at','asc')->paginate(15);
+            $sum = detail::where('genre','wor')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->sum('price');
             // dd($lists);
 
             $genre = '仕事関係';
@@ -130,8 +133,8 @@ class DetailController extends Controller
             $date = carbon::now();
 
             // 一覧を取得->15件でページネート
-            $lists = detail::where('genre','uti')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->orderby('created_at','asc')->paginate(15);
-            $sum = detail::where('genre','uti')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->sum('price');
+            $lists = detail::where('genre','uti')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->orderby('use_at','asc')->paginate(15);
+            $sum = detail::where('genre','uti')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->sum('price');
             // dd($lists);
 
             $genre = '光熱費など';
@@ -151,8 +154,8 @@ class DetailController extends Controller
             $date = carbon::now();
 
             // 一覧を取得->15件でページネート
-            $lists = detail::where('genre','mov')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->orderby('created_at','asc')->paginate(15);
-            $sum = detail::where('genre','mov')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->sum('price');
+            $lists = detail::where('genre','mov')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->orderby('use_at','asc')->paginate(15);
+            $sum = detail::where('genre','mov')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->sum('price');
             // dd($lists);
 
             $genre = '交通費';
@@ -172,10 +175,15 @@ class DetailController extends Controller
             $date = carbon::now();
 
             // 一覧を取得->15件でページネート
-            $lists = detail::where('genre','etc')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->orderby('created_at','asc')->paginate(15);
-            $sum = detail::where('genre','etc')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->sum('price');
+            $lists = detail::where('genre','etc')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->orderby('use_at','asc')->paginate(15);
+            $sum = detail::where('genre','etc')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->sum('price');
 
             $genre = 'その他';
+
+            // $lastyear = carbon::now()->subYear()->toDateString();
+            // dd($lastyear);
+
+            // $lists = detail::where('user_id',$user['id'])->where('use_at','<','lastyear')->paginate(15);
 
             return view('kakeibo.list',compact('lists','sum','genre','date'));
         }
@@ -193,8 +201,8 @@ class DetailController extends Controller
             $date = carbon::now();
             
             // 一覧を取得->15件でページネート
-            $lists = detail::where('genre','ent')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->orderby('created_at','asc')->paginate(15);
-            $sum = detail::where('genre','ent')->where('user_id',$user['id'])->wherebetween('created_at',[$start,$end])->sum('price');
+            $lists = detail::where('genre','ent')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->orderby('use_at','asc')->paginate(15);
+            $sum = detail::where('genre','ent')->where('user_id',$user['id'])->wherebetween('use_at',[$start,$end])->sum('price');
             // dd($list);
 
             $genre = '趣味、娯楽費';

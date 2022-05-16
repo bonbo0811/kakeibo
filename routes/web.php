@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('kakeibo.top');
 });
 
-Route::get('/top', function () {
-    return view('kakeibo\top');
-});
 
 Auth::routes();
 
