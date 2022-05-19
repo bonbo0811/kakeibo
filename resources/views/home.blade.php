@@ -4,7 +4,7 @@
 <div class="card h-100">
     <div class="row justify-content-center">
         <div class="col">
-                <div class="card-header fw-bold" style="background-color:#FFFFEE;">{{ __('カケイボ！でお金を管理しよう！') }}</div>
+                <div class="card-header fw-bold" style="background-color:#FFFFEE;">{{ __('Kakeibo! でお金を管理しよう！') }}</div>
                 <div class="card-body p-4">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="mt-4 fw-bold">
-                        {{ ('『カケイボ！』をご利用くださいありがとうございます。') }}
+                        {{ ('『Kakeibo!』をご利用くださいありがとうございます。') }}
                     </div>
 
                     <div class="mt-4 fw-bold">
