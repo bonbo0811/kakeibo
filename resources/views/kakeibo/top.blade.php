@@ -12,7 +12,7 @@
                         「Kakeibo!」とは？
                         </h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body mt-2 mb-2">
                         <div class="col-md-9 mt-2 mb-3 m-auto">
                             <img src="{{ asset('images/toppic.png')}}" class="img-fluid border" alt="Kakeibo!のイメージ画像">
                         </div>
