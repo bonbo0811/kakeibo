@@ -153,7 +153,7 @@
             <div class="col-md-4 p-0">
                 <div class="card h-100">
                     <div class="card-header d-flex" style="background-color:#FFFFEE;">詳しく見る<a class='ml-auto'><i class="fas fa-plus-circle"></i></a></div>
-                        <div class="card-body p-3 mb-3">
+                        <div class="card-body p-3 mb-5">
                             <table class="table">
                                 <div class="text-center">
                                     <h3>
