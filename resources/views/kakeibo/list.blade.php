@@ -3,7 +3,7 @@
 @section('content')
 <div class="card h-100">
         <div class="card-header d-flex" style="background-color:#FFFFEE;">詳細<a class='ml-auto'><i class="fas fa-plus-circle"></i></a></div>
-            <div class="card-body p-3 mb-3">
+            <div class="card-body p-3 mb-5">
                 <h3 class="ms-4 mt-2 mb-3">
                     {{ $genre }}  ： {{ $sum }} 円
                 </h3>
@@ -23,7 +23,7 @@
                                     <th><a href="{{ route('edit',['id'=>$list->id ]) }}" class="btn btn-sm btn-secondary">編集</a></th>
                                 </tr>
                             @endforeach
-                    </table>    
+                    </table> 
                     {{ $lists->links()}}
             </div> <!-- col-md-3 -->
 </div>
