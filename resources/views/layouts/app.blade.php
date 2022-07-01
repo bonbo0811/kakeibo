@@ -120,13 +120,20 @@
                             <div class="col-md-8">
                                 {{ __('金額') }}
                                 <br>
-                                <input type="number" name="price" class="mb-2 form-control mt-1" value="{{ old('price') }}" placeholder="例：10000">
+                                <div class="col-md-12 d-flex flex-row">
+                                    <div class="col-md-12 d-flex flex-row">
+                                        <input type="number" name="price" class="mb-2 form-control mt-1" value="{{ old('price') }}" placeholder="例：10000">
+                                    </div>
+                                        <span class="p-2">円</span>
+                                    </div>
+                                <div>
                                     @if($errors->has('price'))
                                         @foreach($errors->get('price') as $message)
                                             <p class="small text-danger">→ {{ $message }} </p>
                                         @endforeach
                                     @endif 
-                            </div><!--  class="col-md-8"> -->
+                                </div>
+                            </div>
 
                             <div class="col-md-8">
                                 {{ __('日付') }}
