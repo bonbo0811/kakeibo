@@ -17,10 +17,10 @@
                         </thead>
                             @foreach($lists AS $list)
                                 <tr>
-                                    <th>{{ $list->name }}</th>
-                                    <th>{{ $list->price }} 円</th>
-                                    <th>{{ date('n月 j日',strtotime($list->use_at)) }}</th>
-                                    <th><a href="{{ route('edit',['id'=>$list->id ]) }}" class="btn btn-sm btn-secondary">編集</a></th>
+                                    <th class="align-middle">{{ $list->name }}</th>
+                                    <th class="align-middle">{{ $list->price }} 円</th>
+                                    <th class="align-middle">{{ date('n月 j日',strtotime($list->use_at)) }}</th>
+                                    <th class="align-middle"><a href="{{ route('edit',['id'=>$list->id ]) }}" class="btn btn-sm btn-secondary">編集</a></th>
                                 </tr>
                             @endforeach
                     </table> 
